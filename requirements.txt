@@ -1,0 +1,2 @@
+Pymem==1.14.0
+pywinusb==0.4.2

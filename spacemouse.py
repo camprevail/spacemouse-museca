@@ -18,9 +18,9 @@ else:
 
 # A hook to expose the CGameSceneComponent class to a static location in memory
 entrypoint = 0x1801F291C
-hook = bytes.fromhex('EB 5E 90 90 90')
+hook = bytes.fromhex('EB 5E')
 codelocation = 0x1801F297C
-mycode = bytes.fromhex('48 89 35 65 97 28 0E EB 9C 90 90 90')
+mycode = bytes.fromhex('48 89 35 65 97 28 0E E8 C8 3E 00 00 EB 97')
 pm.write_bytes(entrypoint, hook, len(hook))
 pm.write_bytes(codelocation, mycode, len(mycode))
 

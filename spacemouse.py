@@ -134,19 +134,20 @@ class Handler(object):
         cam = Handler.camera
         sm = Handler.sm
         type_ = data[0]
-        if type_ == 1:
+        if type_ == 1: # translation
             sm.x = data[2] - data[1]
             sm.y = data[4] - data[3]
             sm.z = data[6] - data[5]
-        if type_ == 2:
+        if type_ == 2: # rotation
             sm.rx = data[2] - data[1]
             sm.ry = data[4] - data[3]
             sm.rz = data[6] - data[5]
         if data[0]:
             cam.update(sm.x, sm.y, sm.z, sm.rx, sm.ry, sm.rz, delta_time=1)
         # print(sm.getstr())
-        if type_ == 3:
-            cam.reset()
+        if type_ == 3: # buttons
+            if data[1] == 1:
+                cam.reset()
 
 
 def open_device():
